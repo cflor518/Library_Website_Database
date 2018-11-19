@@ -1,4 +1,6 @@
-<?php  
+<?php
+//session_start() needs to be used to pass on session variables.
+session_start();   
 $connection = mysqli_connect('localhost', 'root', 'root');
 if (!$connection){
     die("Database Connection Failed" . mysqli_error($connection));
