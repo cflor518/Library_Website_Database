@@ -7,20 +7,8 @@ session_start();
 <link rel="stylesheet" type="text/css" href="loggedin.css">
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
-<script>
-function myFunction() {
-    var txt;
-    var r = confirm("Press a button!");
-    if (r == true) {
-        txt = "You pressed OK!";
-    } else {
-        txt = "You pressed Cancel!";
-    }
-    document.getElementById("demo").innerHTML = txt;
-}
-</script>
 <body id="body_bg">
-<div <div align="center">
+<div align="center">
 <br><br><br><br><br>
 <h1>Edit Account Information</h1>
 <h3>Please edit account information to change</h3>
@@ -46,7 +34,13 @@ function myFunction() {
 		$phone = $row["phone"];
 		$address = $row["address"];
 	}
-//In the following form, place the information into the text boxes
+	//If they are in this page but I couldnt get a libID for them
+	//Then kick them out!
+	echo $currentUserID;
+	if(!isset($currentUserID) || is_null($currentUserID)){
+		echo "Youre not supposed to be here... redirecting...";
+		echo '<meta http-equiv="refresh" content="3;url=login.php"/>';
+	}
 ?>	
 	<form id="login-form" method="post" >	
 		First name:<br> 
@@ -61,15 +55,15 @@ function myFunction() {
 		<input type="button" value="Home" onclick="window.location.href='loggedin.php'" > 
 		<input type="Submit" name="PersonSubmit">
 		<br> 
-		<input type="Submit" value="Deregister"  name="DeregisterSubmit">
 	</form>
 <?php
-        if($_POST["PersonSubmit"]){ 
+	if($_POST["PersonSubmit"]){ 
 		$fname = $_POST["firstname"];
 		$lname = $_POST["lastname"];
 		$phone = $_POST["phonenumber"];
 		$address = $_POST["address"];
-		$sql = "UPDATE people SET fname = '" . $fname . "', lname = '" . $lname . "', phone = " . $phone . ", address = '" . $address . "' WHERE libid = " . $currentUserID; 
+		$sql = "UPDATE people SET fname = '" . $fname . "', lname = '" 
+		. $lname . "', phone = " . $phone . ", address = '" . $address . "' WHERE libid = " . $currentUserID; 
 		$result = $conn->query($sql);
 		if($conn->query($sql) === TRUE){
 			echo "Changes commencing ...  inserting <br> ".$fname."<br>". $lname."<br>".$phone."<br>".$address;
@@ -78,13 +72,30 @@ function myFunction() {
 			echo "Error: " . $sql."<br>" .$conn->error;
 		}
 	}
+?>
+	<br>
+	<h3>Click "Deregister" to delete account</h3>
+	<form id="login-form" method="post" >	
+		<input type="Submit" value="Deregister"  name="DeregisterSubmit" OnClick="return confirm('Are you sure you want to delete your account?');">
+	</form>
+<?php
 	if($_POST["DeregisterSubmit"]){
-		echo "something";
-		//Was thinking after button was pushed a pop up will show to confirm or deny the deregistration
-		//but I found out we need Javascript to do it and I dont know how to relate back to php
-		//once the user has clicked confirm :(
-		echo  "<p id=\"demo\"></p>"; //This will echo the "txt" varaible in the javascript function
-		echo "<script>myFunction();</script>";
+		/***********************************************/
+		//Set up the sql query to delete and also take 
+		//the name of the person to be deleted from the
+		//database so we can echo it to the user for 
+		//viual confirmation.
+		$delete_sql = "DELETE FROM people WHERE libid = " . $currentUserID;
+		$fetchname_sql = "SELECT fname FROM people where libid = ".$currentUserID; 
+		$arraynameofdeleted = $conn->query($fetchname_sql);
+		$nameofdeleted = $arraynameofdeleted->fetch_assoc();
+		if($conn->query($delete_sql) === TRUE){
+			echo "Deregistration Complete. Goodbye, ".$nameofdeleted["fname"]. ", we are sad to see you go.<br>";
+			echo "Redirecting Now...";
+			echo '<meta http-equiv="refresh" content="3;url=login.php"/>';
+		}else{
+			echo "Error: " . $delete_sql."<br>" .$conn->error;
+		}
 	} 
 ?>
 </div>
