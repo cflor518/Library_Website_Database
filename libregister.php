@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 //echo "Connected to ". $servername ." successfully<br>";
 /****************************************************************/
 ?>
-<form action="http://localhost:8000/libwelcome.php">
+<form action="http://localhost:8888/libwelcome.php">
     <input type="submit" value="Home Page" />
 </form>
 <form actions="lib.php" method="post">
@@ -139,7 +139,6 @@ City,Sate:<br>
 			    }
 			}
 		}
-		
 		/***********************************************/
 		//Checks if the forms for first name, last name
 		//and phone number are empty and flags for 
@@ -175,8 +174,6 @@ City,Sate:<br>
 			}else if ($checkphone == $phone){
 				$duplicatefound = 1;
 			}
-			
-						
 		    }
 		}
 		/*****************************************************/

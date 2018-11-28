@@ -9,9 +9,9 @@
 		<h1>SABC Library</h1>
 	</div>
 	Welcome!
-	<div><a href="http://localhost:8000/login.php">Login</a>
-	<div><a href="http://localhost:8000/libregister.php">Register</a>
-	<a href="http://localhost:8000/libderegister.php">Deregister</a>
+	<div><a href="http://localhost:8888/login.php">Login</a>
+	<div><a href="http://localhost:8888/libregister.php">Register</a>
+	<a href="http://localhost:8888/libderegister.php">Deregister</a>
 </head>
 </div>
 <hr SIZE=11 NOSHADE WIDTH="100%"> 

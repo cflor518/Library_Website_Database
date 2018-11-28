@@ -55,7 +55,7 @@ $result = $conn->query($sql);
           //I know which row in the associative array I want but I dont know how to
           //index that row directly so what happens here is that we iterate through
           //the whole table again but this time we have an index for the row we want
-          //to delete and we catch with an if the isbn. 
+          //to delete and we catch with an if to collect the isbn. 
 	  $sql = "SELECT * FROM reserves where libid = " . $currentUserID ;
 	  $result = $conn->query($sql); 
 	  $SecondIterationCount = 0;
@@ -73,7 +73,7 @@ $result = $conn->query($sql);
 	  $delete_sql = "DELETE FROM reserves WHERE isbn = " . $isbnToDelete;
 	  if($conn->query($delete_sql) === TRUE){
 	    echo "Give me a sec while I return " . $titleToDelete;	
-	    echo '<meta http-equiv="refresh" content="3" />';
+	    echo '<meta http-equiv="refresh" content="3"/>';
 	  }else{
 	    echo "Error: " . $delete_sql."<br>" .$conn->error;
 	  }
@@ -84,7 +84,7 @@ $result = $conn->query($sql);
     <form id="login-form" >
 
 		<input type="button" value="Check out a book" onclick="window.location.href='checkout.php'" />
-		<input type="button" value="Return a book" onclick="window.location.href='return.php'" />
+		<input type="button" value="Edit Account Info" onclick="window.location.href='editaccount.php'" />
 		<br><br>
 		<input type="button" value="Log out" onclick="window.location.href='logout.php'" />
 		<input type="button" value="Delete Account" onclick="window.location.href='deregister.php'" />

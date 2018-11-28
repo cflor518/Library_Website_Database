@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 /****************************************************************/
 //This area is for the display and hide entries buttons.
 ?>
-<form action="http://localhost:8000/libwelcome.php">
+<form action="http://localhost:8888/libwelcome.php">
     <input type="submit" value="Home Page" />
 </form>
 <form actions="lib.php" method="post">
@@ -98,7 +98,6 @@ Last name:<br>
 
 	}
 	//echo $newlibid . $fname . $lname . $phone . $address;
-
 /****************************************************************/ 
 ?> 
 </div> 
