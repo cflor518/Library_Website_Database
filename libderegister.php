@@ -47,7 +47,7 @@ if ($conn->connect_error) {
 		    //loops through the result set and outputs the data from the
 		    //SName columns in Sailors;
 		    while($row = $result->fetch_assoc()) {
-			echo $row["libid"] . "<br>";
+			echo $row["libID"] . "<br>";
 			echo $row["fname"] . "<br>";
 			echo $row["lname"] . "<br>";
 			echo $row["phone"] . "<br>";
@@ -62,42 +62,55 @@ if ($conn->connect_error) {
 ?>
 <!---------------------------------------------------------------->
 <!--To deregister,all you really need to enter in the form is the 
-    libid, the first name and last name forms are ignored.-->
+    libID, the first name and last name forms are ignored.-->
 <h2>Deregister here</h2> 
 <!--Form wrapper just cushions the margin of the entry forms.-->
 <div id="FormWrapper">
 <form method="post"> 
 Library ID:<br> 
-<input type="text" name="libid"> <br> 
+<input type="text" name="libID"> <br> 
 First name:<br> 
 <input type="text" name="firstname"><br> 
 Last name:<br> 
 <input type="text" name="lastname"> <br> 
-<input type="Submit" name="PersonSubmit"> 
-</form> 
+<input type="Submit" name="PersonSubmit"OnClick="return confirm('Are you sure you want to delete your account?');"> 
+</form>
+ 
  
 <?php  
-        if($_POST["PersonSubmit"]){ 
-		$libid = $_POST["libid"];
-		$fname = $_POST["firstname"];
-		$lname = $_POST["lastname"];
-		/***********************************************/
-		//Set up the sql query to delete and also take 
-		//the name of the person to be deleted from the
-		//database so we can echo it to the user for 
-		//viual confirmation.
-		$delete_sql = "DELETE FROM people WHERE libid = " . $libid;
-		$fetchname_sql = "SELECT fname FROM people where libid = ".$libid; 
-		$arraynameofdeleted = $conn->query($fetchname_sql);
-		$nameofdeleted = $arraynameofdeleted->fetch_assoc();
-		if($conn->query($delete_sql) === TRUE){
-			echo "Deregistration Complete. Goodbye, ".$nameofdeleted["fname"]. ", we are sad to see you go.<br>";
-		}else{
-			echo "Error: " . $delete_sql."<br>" .$conn->error;
+if($_POST["PersonSubmit"]){ 
+	$libID = $_POST["libID"];
+	$fname = $_POST["firstname"];
+	$lname = $_POST["lastname"];
+	$personfound = false;
+	$databaseempty = false;
+	//Check if all of the forms have been filled out	
+	if (!empty($_POST['libID']) and !empty($_POST['firstname']) and !empty($_POST['lastname'])) {
+		$check_user_sql = "SELECT * FROM people";
+		$check_user_result = $conn->query($check_user_sql);
+		//Checks if there is anything inside the database, any rows at all
+		if ($check_user_result->num_rows > 0) {
+			while($row = $check_user_result->fetch_assoc()) {
+				if( $libID === $row["libID"] && $fname === $row["fname"] && $lname === $row["lname"]){
+					$personfound = true;
+				}
+			}
+		}else{ echo "<script> alert(\"Our database is empty...\"); </script>"; $databaseempty = true;}
+		//If first name, last name, and libid match a row in my database
+		//Then go ahead and delete this person.
+		if($personfound){
+			$delete_sql = "DELETE FROM people WHERE libID = " . $libID;
+			$fetchname_sql = "SELECT fname FROM people where libID = ".$libID; 
+			$arraynameofdeleted = $conn->query($fetchname_sql);
+			$nameofdeleted = $arraynameofdeleted->fetch_assoc();
+			if($conn->query($delete_sql) === TRUE){
+				echo "Deregistration Complete. Goodbye, ".$nameofdeleted["fname"]. ", we are sad to see you go.<br>";
+			}else{ echo "Error: " . $delete_sql."<br>" .$conn->error; }
+		}else{ if(!$databaseempty){ echo "<script> alert(\"Im sorry, no matching records found for the information you have provided\"); </script>"; }
 		}
-
-	}
-	//echo $newlibid . $fname . $lname . $phone . $address;
+	}else{ echo "<script> alert(\"Please fill out the form completely\"); </script>"; }
+}
+	//echo $newlibID . $fname . $lname . $phone . $address;
 /****************************************************************/ 
 ?> 
 </div> 
