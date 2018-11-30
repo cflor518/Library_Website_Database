@@ -37,9 +37,6 @@ session_start();
                <a href="http://localhost:8888/Library_Website_Database-master/libderegister.php" class="nav-link" href=""><p class="a">Unsubscribe</p></a>
              </li>
              <li class="nav-item">
-               <a href="" class="nav-link" href=""><p class="a">Book Search</p></a>
-             </li>
-             <li class="nav-item">
                <a href="http://localhost:8888/Library_Website_Database-master/checkout.php" class="nav-link" href=""><p class="a">Checkout</p></a>
              </li>
              <li class="nav-item">
@@ -56,62 +53,23 @@ session_start();
 
 <!-- br><br><br><br><br><br> -->
 
-<div class="container">
-
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="https://sipri.org/sites/default/files/styles/body_embedded/public/2018-01/dsc_0155_1.jpg?itok=S1ACqEI_" alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
-               <h3 class="h3-responsive">Slight mask</h3>
-               <p>First text</p>
-           </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://sipri.org/sites/default/files/styles/body_embedded/public/2018-01/dsc_0155_1.jpg?itok=S1ACqEI_" alt="Second slide">
-        <div class="carousel-caption">
-               <h3 class="h3-responsive">Slight mask</h3>
-               <p>Second text</p>
-           </div>
-
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://sipri.org/sites/default/files/styles/body_embedded/public/2018-01/dsc_0155_1.jpg?itok=S1ACqEI_" alt="Third slide">
-        <div class="carousel-caption">
-               <h3 class="h3-responsive">Slight mask</h3>
-               <p>Third text</p>
-           </div>
-
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
 </div>
+<img src="library-services.jpg" style="width: 1500px;height:300px;">
 <br><br>
-<h1>SABC Library Login</h1><br>
+
+<h1><center>SABC Library Login</center></h1><br>
+<div class="d-flex justify-content-center">
     <form id="login-form" method="post" action="authen_login.php" >
         <table border="0.5" >
 
-            <tr>
+            <tr align="center">
                 <td><label for="fname">First Name</label></td>
                 <td><input type="text" name="fname" id="fname"></td>
             </tr>
             <tr>
-                <td><label for="lname">Last Name</label></td>
+                <td><label for="lname">Last Name</label></dh>
                 <td><input type="text" name="lname" id="lname"></td>
+
             </tr>
             <tr>
                 <td><label for="libID">Library ID</label></td>
@@ -121,10 +79,11 @@ session_start();
             <tr>
 
                 <td><input type="submit" value="Submit" />
-                <td><input type="reset" value="Reset"/>
+                <td><input type="reset" value="Reset" />
 
             </tr>
         </table>
+</div>
 
     </form>
 		</div>
@@ -139,6 +98,7 @@ session_start();
 
             </div>
         </div>
+
     </section>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
