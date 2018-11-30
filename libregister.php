@@ -61,7 +61,7 @@ if ($conn->connect_error) {
 		    //loops through the result set and outputs the data from the
 		    //SName columns in Sailors;
 		    while($row = $result->fetch_assoc()) {
-			echo $row["libid"] . "<br>";
+			echo $row["libID"] . "<br>";
 			echo $row["fname"] . "<br>";
 			echo $row["lname"] . "<br>";
 			echo $row["phone"] . "<br>";
@@ -108,13 +108,13 @@ City,Sate:<br>
 		*****OBSOLETE: PROGRAM NO LONGER ASSIGN LibID in
 		this manner****
 		//Returns the number of entries then adds one
-		//The outcome is the new libid for the person
+		//The outcome is the new libID for the person
 		//being entered;
                 $sql = "SELECT Count(*) FROM people"; 
                 $result = $conn->query($sql); 
 	    	$row = $result->fetch_assoc();  
-	    	$newlibid =  $row["Count(*)"] . "<br>"; 
-		$newlibid = $newlibid + 1;
+	    	$newlibID =  $row["Count(*)"] . "<br>"; 
+		$newlibID = $newlibID + 1;
 		***********************************************/
 		//Starts at Library ID one and increments by one
 		//until there is Library ID that does not exists
@@ -122,18 +122,18 @@ City,Sate:<br>
 		//when we register people, though this algorithm
 		//does have O(n) complexity.
 		$LibraryIDisUnqiue = FALSE;
-		$newlibid = 0; 
+		$newlibID = 0; 
 		$foundMatch = 0;
 		while($LibraryIDUnqiue == FALSE){
 			$LibraryIDUnqiue = TRUE;
-			$newlibid = $newlibid + 1; 
+			$newlibID = $newlibID + 1; 
 			$sql = "SELECT * FROM people";
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
 			    while($row = $result->fetch_assoc()) {
-				$checklibid =  $row["libid"] . "<br>";
-				if(intval($checklibid) == $newlibid){
-				    //echo "This libid already exists in database: " . $newlibid."<br>";
+				$checklibID =  $row["libID"] . "<br>";
+				if(intval($checklibID) == $newlibID){
+				    echo "This libID already exists in database: " . $newlibID."<br>";
 				    $LibraryIDUnqiue = FALSE;
 				}
 			    }
@@ -184,11 +184,11 @@ City,Sate:<br>
 		/*****************************************************/
 		//If you found nothing wrong with the user's entries
 		//try and insert it into the database.
-			$insert_sql = "INSERT INTO people VALUES(" . $newlibid . ",'" . $fname."','".$lname."',".$phone.",'".$address."');";
+			$insert_sql = "INSERT INTO people(libID, fname, lname, phone, address) VALUES(" . $newlibID . ",'" . $fname."','".$lname."',".$phone.",'".$address."');";
 			if($conn->query($insert_sql) === TRUE){
 			/*****************************************************/
 			//Attempt to insert the query in the database
-				echo "Registration Complete. Welcome ".$fname.", your Library ID # is: ".$newlibid;
+				echo "Registration Complete. Welcome ".$fname.", your Library ID # is: ".$newlibID;
 			}else{
 			/*****************************************************/
 			//Something went wrong with the attemp to insert
@@ -198,7 +198,7 @@ City,Sate:<br>
 		}
 
 	}
-	//echo $newlibid . $fname . $lname . $phone . $address;
+	//echo $newlibID . $fname . $lname . $phone . $address;
 
 /****************************************************************/ 
 ?> 
