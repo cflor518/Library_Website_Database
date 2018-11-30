@@ -26,26 +26,24 @@ session_start();
 
            </ul>
            <ul class="navbar-nav">
-             <li class="nav-item active">
-               <a href="http://localhost:8888/libwelcome.php" class="nav-link ac" href=""><p class="a">Home</p></a>
+            
+             <li class="nav-item">
+               <a href="http://localhost:8888/Library_Website_Database-master/login.php" class="nav-link" href=""><p class="a">Home</p></a>
              </li>
              <li class="nav-item">
-               <a href="http://localhost:8888/login.php" class="nav-link" href=""><p class="a">Login</p></a>
+               <a href="http://localhost:8888/Library_Website_Database-master/libregister.php" class="nav-link" href=""><p class="a">Sign Up</p></a>
              </li>
              <li class="nav-item">
-               <a href="http://localhost:8888/libregister.php" class="nav-link" href=""><p class="a">Sign Up</p></a>
-             </li>
-             <li class="nav-item">
-               <a href="http://localhost:8888/libderegister.php" class="nav-link" href=""><p class="a">Unsubscribe</p></a>
+               <a href="http://localhost:8888/Library_Website_Database-master/libderegister.php" class="nav-link" href=""><p class="a">Unsubscribe</p></a>
              </li>
              <li class="nav-item">
                <a href="" class="nav-link" href=""><p class="a">Book Search</p></a>
              </li>
              <li class="nav-item">
-               <a href="http://localhost:8888/checkout.php" class="nav-link" href=""><p class="a">Checkout</p></a>
+               <a href="http://localhost:8888/Library_Website_Database-master/checkout.php" class="nav-link" href=""><p class="a">Checkout</p></a>
              </li>
              <li class="nav-item">
-               <a href="http://localhost:8888/libwelcome.php" class="nav-link" href=""><p class="a">Sign Out</p></a>
+               <a href="http://localhost:8888/Library_Website_Database-master/libwelcome.php" class="nav-link" href=""><p class="a">Sign Out</p></a>
              </li>
            </ul>
          </div>
