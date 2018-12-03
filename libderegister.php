@@ -67,17 +67,13 @@ if ($conn->connect_error) {
 /****************************************************************/
 //This area is for the display and hide entries buttons.
 ?>
-<form action="http://localhost:8888/Library_Website_Database-master/login.php"><center>
-    <input type="submit" value="Home Page" />
-    <br>
-</form>
+
 <br>
-<form actions="lib.php" method="post">
+<form actions="lib.php" method="post"> <center>
         <input type="Submit" name="EntriesButton" value="Display Entries">
         <input type="Submit" name="HideEntriesButton" value="Hide Entries">
 	
 </form>
-
 <?php 
         if ($_POST["EntriesButton"]){ 
 		/****************************************************************/

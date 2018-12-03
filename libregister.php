@@ -1,10 +1,54 @@
+<!DOCTYPE html >
 <html>
-<body>	
-<div id="wrapper">
-<link rel="stylesheet": href="color.css">
-<div class="header">
-	<img src="SABC.png" alt="SABCLogo"/>
-	<h1>SABC Library</h1>
+<head>
+<title>SABC Library Login</title>
+<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <title>Sprout</title>
+  <style>
+     .row div{padding:20px 10px}
+  </style>
+   <nav class="navbar navbar-expand-lg navbar-light" style="background:rgb(107,142,165)">
+         <a class="navbar-brand" href="#"><p class="ab"><img src="SABC.png" width ="50px">SABC Library</p></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+
+           </ul>
+           <ul class="navbar-nav">
+            
+             <li class="nav-item">
+               <a href="http://localhost:8888/Library_Website_Database-master/login.php" class="nav-link" href=""><p class="a">Home</p></a>
+             </li>
+             <li class="nav-item">
+               <a href="http://localhost:8888/Library_Website_Database-master/libregister.php" class="nav-link" href=""><p class="a">Sign Up</p></a>
+             </li>
+             <li class="nav-item">
+               <a href="http://localhost:8888/Library_Website_Database-master/libderegister.php" class="nav-link" href=""><p class="a">Unsubscribe</p></a>
+             </li>
+             <li class="nav-item">
+               <a href="http://localhost:8888/Library_Website_Database-master/checkout.php" class="nav-link" href=""><p class="a">Checkout</p></a>
+             </li>
+              <li class="nav-item">
+               <a href="http://localhost:8888/Library_Website_Database-master/editaccount.php" class="nav-link" href=""><p class="a">Edit Account</p></a>
+             </li>
+             <li class="nav-item">
+               <a href="http://localhost:8888/Library_Website_Database-master/logout.php" class="nav-link" href=""><p class="a">Sign Out</p></a>
+             </li>
+           </ul>
+         </div>
+       </nav>
+
+  </header>
+  <br><br><br>
+                <h1><center>SABC Library</center?></h1>
+ </head>
 </div>
 <?php
 /****************************************************************/
@@ -22,15 +66,14 @@ if ($conn->connect_error) {
 //echo "Connected to ". $servername ." successfully<br>";
 /****************************************************************/
 ?>
-<form action="http://localhost:8888/libwelcome.php">
-    <input type="submit" value="Home Page" />
-</form>
-<form actions="lib.php" method="post">
+<form actions="lib.php" method="post"> <center>
+<br>
        <!-- <input type="Submit" name="AmountButton" value="Display Amount">-->
         <input type="Submit" name="EntriesButton" value="Display Entries">
         <input type="Submit" name="HideEntriesButton" value="Hide Entries">
+</center>
 </form>
-
+<br>
 <?php
 /**************************************************************** 
 /*        if ($_POST["AmountButton"]){ 
@@ -44,9 +87,6 @@ if ($conn->connect_error) {
                     echo $row["Count(*)"] . "<br>"; 
         }else*/ 
 /****************************************************************/
-
-
-
 	//Displays the entries in the database 	
 	if ($_POST["EntriesButton"]){ 
 		//If you click this button it will show the fname of all entires;
@@ -73,17 +113,14 @@ if ($conn->connect_error) {
 	/****************************************************************/
 	//Hides the entries in the database 	
         }else if($_POST["HideEntriesButton"]){
-
-
-
 	} 
 /****************************************************************/ 
 ?>
-<h2>Register here</h2> 
+<h2><center>Register here</center></h2> 
 <!--Form Wrapper just pushes the margins for the form boxes a
 little to the right-->
 <div id="FormWrapper">
-<form method="post"> 
+<form method="post"><center> 
 First name:<br> 
 <input type="text" name="firstname"><br> 
 Last name:<br> 
@@ -94,6 +131,7 @@ City,Sate:<br>
 <input type="text" name="address"> <br> 
 <br> 
 <input type="Submit" name="PersonSubmit"> 
+</center>
 </form> 
  
 <?php  
@@ -164,13 +202,10 @@ City,Sate:<br>
 			//echo "<br>";
 			if(empty($fname)){
 				$emptyform = 1;
-
 			}else if(empty($lname)){
 				$emptyform = 1;
-
 			}else if(empty($phone)){
 				$emptyform = 1;
-
 			}else if ($checkphone == $phone){
 				$duplicatefound = 1;
 			}
@@ -193,20 +228,32 @@ City,Sate:<br>
 			/*****************************************************/
 			//Something went wrong with the attemp to insert
 				echo "Error: " . $insert_sql."<br>" .$conn->error;
-
 			}
 		}
-
 	}
 	//echo $newlibID . $fname . $lname . $phone . $address;
-
 /****************************************************************/ 
 ?> 
+</div> <br><br><br>
 </div> 
-<hr SIZE=11 NOSHADE WIDTH="100%"> 
-<i>Copyright 2008-2018</i></font><br> 
-<i>ALL RIGHTS RESERVED</i></font><br> 
-<i>URL: http://www.sdsu.edu</i></font><br> 
+</div> 
+<section id="footer" style="background:rgb(107,142,165)">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p> &copy; SABC 2018</p>
+                    <p>ALL RIGHT RESERVED</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </div><!--End Wrapper Class--> 
 </body> 
 </html> 
