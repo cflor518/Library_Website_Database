@@ -15,7 +15,7 @@ session_start();
   <style>
      .row div{padding:20px 10px}
   </style>
-  <nav class="navbar navbar-expand-lg navbar-light">
+   <nav class="navbar navbar-expand-lg navbar-light" style="background:rgb(107,142,165)">
          <a class="navbar-brand" href="#"><p class="ab"><img src="SABC.png" width ="50px">SABC Library</p></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
@@ -40,8 +40,12 @@ session_start();
                <a href="http://localhost:8888/Library_Website_Database-master/checkout.php" class="nav-link" href=""><p class="a">Checkout</p></a>
              </li>
              <li class="nav-item">
-               <a href="http://localhost:8888/Library_Website_Database-master/libwelcome.php" class="nav-link" href=""><p class="a">Sign Out</p></a>
+               <a href="http://localhost:8888/Library_Website_Database-master/editaccount.php" class="nav-link" href=""><p class="a">Edit Account</p></a>
              </li>
+             <li class="nav-item">
+               <a href="http://localhost:8888/Library_Website_Database-master/logout.php" class="nav-link" href=""><p class="a">Sign Out</p></a>
+             </li>
+             
            </ul>
          </div>
        </nav>
