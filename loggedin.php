@@ -53,7 +53,7 @@ session_start();
  <br>
 <h3><center>What would you like to do?</center></h3>
  <br><br><br>
-<table style="width:70%">
+<table style="width:70%" align="Center">
   
 <?php
 $servername = "localhost";
@@ -109,7 +109,7 @@ $result = $conn->query($sql);
           //Finaly we delete that stinky row. 
 	  $delete_sql = "DELETE FROM reserves WHERE ISBN = " . $ISBNToDelete;
 	  if($conn->query($delete_sql) === TRUE){
-	    echo "Give me a sec while I return " . $titleToDelete;	
+	    echo "<center><b>Give me a sec while I return " . $titleToDelete . "...</b></center>" ;	
 	    echo '<meta http-equiv="refresh" content="3"/>';
 	  }else{
 	    echo "Error: " . $delete_sql."<br>" .$conn->error;
