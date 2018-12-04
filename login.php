@@ -79,9 +79,8 @@ session_start();
                 <td><label for="libID">Library ID</label></td>
                 <td><input type="libID" name="libID" id="libID"></input></td>
             </tr>
-
-            <tr>
-
+            <tr align="center">
+        
                 <td><input type="submit" value="Submit" />
                 <td><input type="reset" value="Reset" />
 
