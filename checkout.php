@@ -76,7 +76,7 @@
     $conn->close();
     ?>
 </div>
-
+<br><br>
 <h3><center>What book would you like to check out?</center></h3>
 <!DOCTYPE html>
 <html>
@@ -104,7 +104,7 @@
 </form>
 </div>
 
-<br><br><br>
+<br><br><br><br><br><br><br><br><br>
 </div>
 </div>
 <section id="footer" style="background:rgb(107,142,165)">

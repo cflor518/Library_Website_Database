@@ -159,7 +159,7 @@ if($_POST["PersonSubmit"]){
 	//echo $newlibID . $fname . $lname . $phone . $address;
 /****************************************************************/ 
 ?> 
-<br><br><br>
+<br><br><br><br><br>
 </div> 
 </div> 
 <section id="footer" style="background:rgb(107,142,165)">
