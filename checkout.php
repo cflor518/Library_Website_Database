@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html >
 <html>
 <head>
@@ -24,7 +27,19 @@
 <ul class="navbar-nav">
 
 <li class="nav-item">
-<a href="http://localhost:8888/Library_Website_Database-master/login.php" class="nav-link" href=""><p class="a">Home</p></a>
+<a href=
+
+<?php
+if (isset($_SESSION['libID'])) {
+
+	echo "\"http://localhost:8888/Library_Website_Database-master/loggedin.php\"";
+}else{
+	echo "\"http://localhost:8888/Library_Website_Database-master/login.php\"";
+}
+?>
+
+
+class="nav-link" href=""><p class="a">Home</p></a>
 </li>
 <li class="nav-item">
 <a href="http://localhost:8888/Library_Website_Database-master/libregister.php" class="nav-link" href=""><p class="a">Sign Up</p></a>
@@ -74,7 +89,11 @@
         echo "0 results";
     }
     $conn->close();
-    ?>
+if (!isset($_SESSION['libID'])) {
+  echo "<script> alert(\"Please log in to checkout books\"); </script>";
+  echo '<meta http-equiv="refresh" content="0;url=login.php"/>';
+}
+?>
 </div>
 <br><br>
 <h3><center>What book would you like to check out?</center></h3>

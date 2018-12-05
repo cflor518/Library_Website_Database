@@ -28,7 +28,16 @@ session_start();
            <ul class="navbar-nav">
             
              <li class="nav-item">
-               <a href="http://localhost:8888/Library_Website_Database-master/login.php" class="nav-link" href=""><p class="a">Home</p></a>
+               <a href=<?php
+
+if (isset($_SESSION['libID'])) {
+
+	echo "\"http://localhost:8888/Library_Website_Database-master/loggedin.php\"";
+}else{
+	echo "\"http://localhost:8888/Library_Website_Database-master/login.php\"";
+}
+?> class="nav-link" href=""><p class="a">Home</p></a>
+
              </li>
              <li class="nav-item">
                <a href="http://localhost:8888/Library_Website_Database-master/libregister.php" class="nav-link" href=""><p class="a">Sign Up</p></a>
@@ -57,6 +66,10 @@ session_start();
 <p><center>Please edit account information to change<center></p>
 
 <?php
+if (!isset($_SESSION['libID'])) {
+  echo "<script> alert(\"Please log in to edit account\"); </script>";
+  echo '<meta http-equiv="refresh" content="0;url=login.php"/>';
+}
 //Connect to the database and place all attribute
 //of user in to php variables.
 	$servername = "localhost";
@@ -76,13 +89,6 @@ session_start();
 		$lname = $row["lname"];
 		$phone = $row["phone"];
 		$address = $row["address"];
-	}
-	//If they are in this page but I couldnt get a libID for them
-	//Then kick them out!
-	echo $currentUserID;
-	if(!isset($currentUserID) || is_null($currentUserID)){
-		echo "Youre not supposed to be here... redirecting...";
-		echo '<meta http-equiv="refresh" content="3;url=login.php"/>';
 	}
 ?>	
 	<form id="login-form" method="post" >	<center>
