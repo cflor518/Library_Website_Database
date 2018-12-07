@@ -131,7 +131,7 @@ if (!isset($_SESSION['libID'])) {
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
 <p> &copy; SABC 2018</p>
-<p>ALL RIGHT RESERVED</p>
+<p>ALL RIGHTS RESERVED</p>
 </div>
 
 </div>
