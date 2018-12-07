@@ -74,6 +74,7 @@ if ($conn->connect_error) {
 </center>
 </form>
 <br>
+<div <div align="center">
 <?php
 /**************************************************************** 
 /*        if ($_POST["AmountButton"]){ 
@@ -116,6 +117,7 @@ if ($conn->connect_error) {
 	} 
 /****************************************************************/ 
 ?>
+</div>s
 <h2><center>Register here</center></h2> 
 <!--Form Wrapper just pushes the margins for the form boxes a
 little to the right-->

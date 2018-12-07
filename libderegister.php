@@ -122,7 +122,7 @@ Last name:<br>
 </center>
 </form>
  
- 
+<div <div align="center">
 <?php  
 if($_POST["PersonSubmit"]){ 
 	$libID = $_POST["libID"];
@@ -158,7 +158,8 @@ if($_POST["PersonSubmit"]){
 }
 	//echo $newlibID . $fname . $lname . $phone . $address;
 /****************************************************************/ 
-?> 
+?>
+</div>
 <br><br><br><br><br>
 </div> 
 </div> 
