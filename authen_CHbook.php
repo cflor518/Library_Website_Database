@@ -89,7 +89,7 @@
             $sql = "INSERT INTO reserves (libID, ISBN) VALUES ('$libID', '$ISBN')";
             
             if ($conn->query($sql) === TRUE) {
-                echo "Book is yours! Would you like to checkout a new one?";
+                echo "Book is yours!";
                 //header('Location: checkout.php');
             }
             else {
